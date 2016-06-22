@@ -5,13 +5,13 @@ Gitserver
 A simple Flask-based webserver for querying git commit parent lineage
 ---------------------------------------------------------------------
 
-This is a very simple-minded service to advertise git history through HTTP, originally written for [teuthology](http://github.com/ceph/teuthology) to use in its scheduling command ``teuthology-suite``.
+This is a very simple-minded service to advertise git history through HTTP, originally written for `teuthology <http://github.com/ceph/teuthology>`__ to use in its scheduling command ``teuthology-suite``.
 
 ============
 Requirements
 ============
 
-Python 2.7 and [flask](http://flask.pocoo.org/).
+Python 2.7 and `flask <http://flask.pocoo.org/>`__.
 
 You probably also want to think about some sort of WSGI deployment methodology (Apache with mod_wsgi, nginx with gunicorn, nginx native, you pick the method).  
 
@@ -22,7 +22,7 @@ Deployment
 
 For testing, you can simply execute the gitserver.py file, and it will start a server on localhost:5000.  You probably don't want to use that in production, however.
 
-Here's a very simple .wsgi file for [mod_wsgi](http://flask.pocoo.org/docs/0.11/deploying/mod_wsgi/)::: 
+Here's a very simple .wsgi file for `mod_wsgi <http://flask.pocoo.org/docs/0.11/deploying/mod_wsgi/>`__::: 
 
         import sys
         sys.path.insert(0, <path holding gitserver.py>)
@@ -30,7 +30,7 @@ Here's a very simple .wsgi file for [mod_wsgi](http://flask.pocoo.org/docs/0.11/
 
 You'll want to verify/update REPOBASE near the top of the gitserver.py file.  You'll also want to populate REPOBASE with git clone --mirror (i.e.  you want bare repos that also track the remote branches). 
 
-See [flask](http://flask.pocoo.org/) for other [deployment](http://flask.pocoo.org/docs/0.11/deploying) options and details.
+See `flask <http://flask.pocoo.org/>`__ for other `deployment <http://flask.pocoo.org/docs/0.11/deploying>`__ options and details.
 
 ====
 URLs
@@ -50,7 +50,6 @@ Requests are GETs, and respond with JSON.
                 * 'err': stderr of fetch
 
 * <repo>/history/?committish=C&count=N
-
         Issue ``git rev-list --first-parent`` starting from C (a branch,
         tag, or sha1).
 
@@ -66,7 +65,6 @@ Requests are GETs, and respond with JSON.
                 * 'committish': copy of input
 
 * <repo>/sha1/?sha1=sha1&shortmsg
-       
         Validate a (possibly-short) sha1; return full sha1.
         If 'shortmsg' is present, return short commit message as well
 
@@ -80,7 +78,6 @@ Requests are GETs, and respond with JSON.
                 * 'err': stderr from ``rev-list``
 
 * <repo>/contains/?sha1=sha1
-        
         Find branches and/or tags that contain sha1
 
         Query params:
