@@ -65,7 +65,7 @@ def history(repo):
     cmd = 'git rev-list --first-parent --max-count %s %s' % (count, committish)
     repodir = '/'.join((REPOBASE, repo))
     out, err, rc = run_command(cmd, repodir)
-    d = dict(sha1s=list(out.split()), err=err, committish=commitish)
+    d = dict(sha1s=list(out.split()), err=err, committish=committish)
     return json.jsonify(d)
 
 
