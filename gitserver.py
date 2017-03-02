@@ -13,7 +13,7 @@ import subprocess
 
 
 # should contain *.git bare repos
-REPOBASE = "/var/tmp/git"
+REPOBASE = "/home/cephgit/gitserver/git"
 JSONHDR = {"content-type" : "application/json"}
 
 def run_command(cmd, repodir):
