@@ -10,7 +10,10 @@ app = Flask(__name__)
 
 import os
 import subprocess
+import logging
 
+app.logger.addHandler(logging.StreamHandler())
+app.logger.setLevel(logging.WARN)
 
 # should contain *.git bare repos
 REPOBASE = "/home/cephgit/gitserver/git"
