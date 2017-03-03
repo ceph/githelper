@@ -14,7 +14,7 @@ import subprocess
 
 # should contain *.git bare repos
 REPOBASE = "/home/cephgit/gitserver/git"
-JSONHDR = {"content-type" : "application/json"}
+JSONHDR = {"content-type": "application/json"}
 
 def run_command(cmd, repodir):
     ''' subprocess helper '''
@@ -57,7 +57,7 @@ def refresh(repo):
 @app.route('/<repo>/history/')
 def history(repo):
     '''
-    /<repo>/history/: Return <count> (default 10) most-recent commit ids from 
+    /<repo>/history/: Return <count> (default 10) most-recent commit ids from
     <committish> (default: master)
     '''
     committish = request.args.get('committish', 'master')
@@ -121,15 +121,15 @@ def contains(repo):
     branchout, brancherr, rc = run_command(cmd, repodir)
     cmd = 'git tag --contains %s' % sha1
     tagout, tagerr, rc = run_command(cmd, repodir)
-    err=''
+    err = ''
     if brancherr or tagerr:
         err = 'branch --contains errors:\n' + brancherr
         err += 'tag --contains errors:\n' + tagerr
 
-    branches=branchout.replace('* ', '').strip().split()
+    branches = branchout.replace('* ', '').strip().split()
     while '->' in branches:
         index = branches.index('->')
-        branches[index - 1] = ' '.join(branches[index-1:index+2])
+        branches[index - 1] = ' '.join(branches[index - 1:index + 2])
         del branches[index:index + 2]
     d = dict(
         branches=branches,
