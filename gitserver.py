@@ -61,9 +61,9 @@ def refresh(repo):
 def history(repo):
     '''
     /<repo>/history/: Return <count> (default 10) most-recent commit ids from
-    <committish> (default: master)
+    <committish> (default: main)
     '''
-    committish = request.args.get('committish', 'master')
+    committish = request.args.get('committish', 'main')
     count = request.args.get('count', 10)
     cmd = 'git rev-list --first-parent --max-count %s %s' % (count, committish)
     repodir = '/'.join((REPOBASE, repo))
