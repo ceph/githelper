@@ -16,7 +16,7 @@ app.logger.addHandler(logging.StreamHandler())
 app.logger.setLevel(logging.WARN)
 
 # should contain *.git bare repos
-REPOBASE = "/home/cephgit/gitserver/git"
+REPOBASE = os.environ.get("REPOBASE", "/home/cephgit/gitserver/git")
 JSONHDR = {"content-type": "application/json"}
 
 def run_command(cmd, repodir):
