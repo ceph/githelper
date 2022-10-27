@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 '''
 Provide simple git history queries for use in
@@ -29,7 +29,7 @@ def run_command(cmd, repodir):
     )
 
     out, err = proc.communicate()
-    return out, err, proc.returncode
+    return out.decode(), err.decode(), proc.returncode
 
 
 @app.route('/')
