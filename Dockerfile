@@ -2,7 +2,7 @@ FROM docker.io/library/python:alpine
 ENV REPOBASE="/git"
 RUN \
   apk add --no-cache bash git tini && \
-  mkdir -p /opt/helper /git
+  mkdir -p /opt/githelper /git
 COPY . /opt/githelper
 RUN \
   cd /opt/githelper && \
