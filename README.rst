@@ -20,15 +20,15 @@ You probably also want to think about some sort of WSGI deployment methodology (
 Deployment
 ==========
 
-For testing, you can simply execute the gitserver.py file, and it will start a server on localhost:5000.  You probably don't want to use that in production, however.
+For testing, you can simply execute the githelper.py file, and it will start a server on localhost:5000.  You probably don't want to use that in production, however.
 
 Here's a very simple .wsgi file for `mod_wsgi <http://flask.pocoo.org/docs/0.11/deploying/mod_wsgi/>`__::: 
 
         import sys
-        sys.path.insert(0, <path holding gitserver.py>)
-        from gitserver import app as application
+        sys.path.insert(0, <path holding githelper.py>)
+        from githelper import app as application
 
-You'll want to verify/update REPOBASE near the top of the gitserver.py file.  You'll also want to populate REPOBASE with git clone --mirror (i.e.  you want bare repos that also track the remote branches). 
+You'll want to verify/update REPOBASE near the top of the githelper.py file.  You'll also want to populate REPOBASE with git clone --mirror (i.e.  you want bare repos that also track the remote branches). 
 
 See `flask <http://flask.pocoo.org/>`__ for other `deployment <http://flask.pocoo.org/docs/0.11/deploying>`__ options and details.
 
