@@ -31,6 +31,6 @@ cd /git
 for repo in $REPOS; do
   git clone --mirror --shallow-since "$REPO_AGE" --shallow-submodules --no-single-branch $repo || true
 done
-cd /opt/gitserver
+cd /opt/githelper
 source ./venv/bin/activate
-exec tini -- gunicorn --workers=10 --bind 0.0.0.0:8080 gitserver:app
+exec tini -- gunicorn --workers=10 --bind 0.0.0.0:8080 githelper:app
