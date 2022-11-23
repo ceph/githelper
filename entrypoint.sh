@@ -23,6 +23,7 @@ DEFAULT_REPOS=(
   "https://github.com/ceph/rocksdb"
   "https://github.com/ceph/s3-tests"
   "git://git.kernel.org/pub/scm/fs/xfs/xfstests-dev.git"
+  "git://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git"
   "https://github.com/ceph/teuthology"
 )
 REPOS=${REPOS:-${DEFAULT_REPOS[@]}}
